@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items:flex-start;
+            background-image: url("F:/stibium_work/project_sam/bg_image.png");
+            background-size: cover;
+
+        }
+
+        .main_div{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            border: 2px black;
+            height: auto;
+            padding: 30px;
+        }
+        .h2{
+            top: 10px;
+            text-align: center;
+            color:rgb(209, 207, 207);
+            margin-bottom: 20px;
+            font-size: 30px;
+            /* border: 2px solid black; */
+        }
+        .welcome{
+            font-size: 23px;
+            color:rgb(209, 207, 207);
+            width: 30%;
+            /* border: 2px solid black; */
+            margin-bottom: 30px;
+        }
+        .username{
+            font-weight: bold;
+            color:rgb(171, 171, 220) ;
+        }
+        h2.h2{
+            margin: 0;
+            padding: 0;
+        }
+        p.welcome{
+            padding: 0;
+        }
+
+
+        .logout{
+            width: 100px;
+            padding: 10px;
+            background-color: rgb(218, 62, 62);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 20px;    
+        }
+        .lgo_container{
+            position: absolute;
+            top: 10px;
+            right:15px
+        }
+        .logout:hover{
+            background-color: #7e2f2f;
+        }
+        .form{
+            flex-direction: column;
+            margin-bottom: 20px;
+            /* border: 2px solid black; */
+        }
+
+        .form label{
+            margin-bottom: 5px;
+            font-weight: bold;
+            margin-right: 0;
+            font-size: 18px;
+            color:rgb(209, 207, 207);
+        }
+
+        .form input, .form select{
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.316);
+            background-color: rgba(17, 16, 16, 0.14);
+            color: rgb(229, 219, 219);
+            border-radius: 4px;
+            box-sizing: border-box;
+            height:auto           
+
+        }
+        .form_row{
+             display: flex;
+             gap: 20px; /*gap between rows*/
+             flex-wrap: wrap;
+             margin-bottom: 20px;
+        }
+        .form_element{
+            display: flex;   
+            flex-direction: column;
+            min-width: 400px;
+
+        }
+        .checkbox_container {
+         display: flex;
+          align-items: flex-start;
+          padding: 10px;
+          margin-bottom: 20px;
+          /* border: 2px solid black; */
+         gap: 8px;
+        }
+
+        .subject_label {
+         font-weight: bold;
+          margin-right: 10px;
+          min-width: 40px;
+          font-size: 18px;
+          color:rgb(209, 207, 207);
+        }
+        .checkbox_row {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          font-size: 16px;
+          color:rgb(209, 207, 207);
+        }
+
+        .checkbox_row label {
+         display: flex;
+         /* align-items: center; */
+         gap: 5px;
+        }
+        .statemnt{
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color:rgb(209, 207, 207);
+        }
+
+        .save_btn{
+            width: 120px;
+            padding: 12px;
+            background-color: rgb(91, 91, 200);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="main_div">
+         <h2 class="h2">Student Details</h2>
+         <p class="welcome"> Welcome, <span class="username">Username</span></p>
+<!-- row 1 -->
+       <form class="form">
+        <div class="form_row">
+        <div class="form_element">
+            <label for="studentname">Student Name</label>
+            <input type="text" id="studentname" name="studentname" required>
+        </div>
+        <div class="form_element">
+            <label for="studentID">Student ID</label>
+            <input type="text" id="studentID" name="studentID" required>
+        </div>
+        <div class="form_element">
+            <label for="course">Course</label>
+            <select id="course" name="course">
+                <option value="Computer science" style="color: black;">Computer Science</option>
+                <option value="MBA" style="color: black;">MBA</option>
+                <option value="Engineering"style="color: black;" >Engineering</option>
+                <option value="Agriculture" style="color: black;">Agriculture</option>
+            </select>
+        </div>
+    </div>
+
+       <!-- Row 2 -->
+    <div class="form_row">
+        <div class="form_element">
+            <label for="sem">Semester</label>
+            <select name="sem" id="sem">
+                <option value="" style="color: black;">Select Semester</option>
+                <option value="1" style="color: black;">1st Semester</option>
+                <option value="2"style="color: black;" >2nd Semester</option>
+                <option value="3"style="color: black;">3rd Semester</option>
+                <option value="4" style="color: black;">4th Semester</option>
+                <option value="5"style="color: black;" >5th Semester</option>
+                <option value="6"style="color: black;">6th Semester</option>
+                <option value="7"style="color: black;">7th Semester</option>
+                <option value="8" style="color: black;">8th Semester</option>
+            </select>
+        </div>
+        <div class="form_element">
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" required>
+        </div>
+        <div class="form_element">
+            <label for="Phone">Phone Number</label>
+            <input type="tel" id="Phone" name="Phone" required>
+        </div>
+    </div>
+    </form>
+<!-- checkbox -->
+<div class="checkbox_container">
+  <label class="subject_label">Subject</label>
+  <div class="checkbox_row">
+    <label><input type="checkbox" name="subject" value="SQL"> SQL</label>
+    <label><input type="checkbox" name="subject" value="Java"> Java</label>
+    <label><input type="checkbox" name="subject" value="Webtech"> Webtech</label>
+    <label><input type="checkbox" name="subject" value="j2ee"> j2ee</label>
+    <label><input type="checkbox" name="subject" value="selenium"> selenium</label>
+    <label><input type="checkbox" name="subject" value="Webservice"> Web service</label>
+  </div>
+</div>
+<div class="statemnt">
+    <label for="statemnt">
+        <input type="checkbox" required> The above information is correct</label>
+</div>
+            
+<!-- save button -->
+        <button class="save_btn" onclick="location.href='tables.html'">Save Details</button>
+    <div class="lgo_container">
+        <button class="logout" onclick="location.href='index.html'">Log out</button>
+    </div>
+    </div>
+
+
+</body>
+</html>

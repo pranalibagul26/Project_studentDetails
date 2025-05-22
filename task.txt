@@ -1,0 +1,11 @@
+DAY 1: I need to learn js with the help of example
+https://www.youtube.com/watch?v=woUkblFsm40&t=2731s
+
+DAY2: create login form with attached sign in option and student details along with table 
+
+Day3: make sure that student details specified in perfect manner and properly align. and add cancel button to the next of login button and forgot password option will open with email, password, new password and reset button make sure when you'll click on reset button so it will directly go to the login page again
+take some reference from "JS REACT UI"
+changes to do :
+-welcome, username align to right 
+-clear unnecessary gap between lables and inputs
+-make all details required

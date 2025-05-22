@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("F:/stibium_work/project_sam/background_imge.png");
+            background-size: cover;
+        }
+        .main_div{
+           flex-direction: column;
+           display: flex;
+           border-radius: 8px;
+           box-shadow: 0 0 10px black;
+           width: 100%;
+           max-width: 400px;
+           padding: 20px;
+           background-color: rgba(0, 0, 0, 0.496);
+           
+
+        }
+        
+        .h2{
+            text-align: center;
+            color: rgb(218, 204, 204);
+            margin-bottom: 10px;
+            font-size: 40px;
+            margin-top: 20px;
+
+        }
+        .form{
+           display: flex;
+           flex-direction: column;
+           padding: 12px;
+        }
+        .form label{
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: rgb(218, 204, 204);
+            font-size: 20px;
+            
+        }
+
+        .form input{
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            color: white;
+            background-color: rgba(15, 14, 14, 0);
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+        }
+        .lgn_btn{
+            width: 48%;
+            padding: 8px;
+            background-color: rgb(91, 91, 200);
+            color: white;
+            border-radius: 4px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 8px;
+            display: inline-block; 
+
+        }
+
+         .cancel_btn:hover{
+            background-color: rgb(36, 36, 98);
+        }
+        .lgn_btn:hover{
+            background-color: rgb(36, 36, 98);
+        }
+       .cancel_btn{
+            width: 48%;
+            padding: 8px;
+            background-color: rgb(91, 91, 200);
+            color: white;
+            border-radius: 4px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        .signup{
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .signup a{
+            color: rgb(91, 91, 203);
+            text-decoration: none;
+        }
+        .signup a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_div">
+        <h2 class="h2">Login</h2>
+        <form class="form" onsubmit="return validateAndRedirect(event)" >
+            <label for="Username">Username</label >
+            <input type="text" id="username" name="Username" required>
+            <label for="Password">Password</label>
+            <input type="password" name="Password" id="password"required>
+            <div>
+            <button type="submit" class="lgn_btn" id="login" >Login</button>
+            <button type="submit" class="cancel_btn">Cancel</button>
+            </div>
+
+        </form>
+        <div class="signup">
+            <p> <a href="forgot_pass.html">Forgot password ?</a></p>
+            <!-- <p style="color: white;">Don't have an account? <a href="signup.html">Sign up</a></p> -->
+        </div>
+    </div>
+
+   <script>
+    function validateAndRedirect(event){
+        event.preventDefault();
+
+            window.location.href = "student_details.html";
+
+    }
+   </script>
+</body>
+</html>

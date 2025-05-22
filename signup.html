@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-image: url("F:/stibium_work/project_sam/background_imge.png");
+            background-size: cover;
+        }
+        .main_div{
+           display: flex;
+           flex-direction: column;
+           border-radius: 8px;
+           box-shadow: 0 0 10px black;
+           width: 100%;
+           max-width: 500px;
+           height: auto;
+           min-height: 400px;
+           background-color: rgba(0,0,0,0.3);
+        }
+        
+        .h2{
+            text-align: center;
+            color: rgb(225, 220, 220);
+            margin-bottom: 20px;
+        }
+        
+        .form{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px; /* space between form and login link */
+        }
+        .form label {
+            margin-bottom: 5px;
+            color: #f7f7f7;
+        }
+        
+        .form input {
+            margin-bottom: 15px;
+            padding: 8px;
+            border: 1px solid #c5aeae;
+            border-radius: 4px;
+            color: #f7f7f7;
+            background-color: rgba(26, 23, 23, 0.3);
+        }
+
+        .signup_btn{
+            width: 100%;
+            padding: 12px;
+            background-color: rgb(74, 74, 125);
+            color: aliceblue;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 16px;
+            align-self: center;
+        }
+        
+        .signup_btn:hover {
+            background-color: rgb(71, 71, 180);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+     <div class="main_div">
+        <h2 class="h2">Sign Up</h2>
+        <form class="form" action="#" method="post">
+            <label for="FullName">Full Name</label>
+            <input type="text" id="FullName" name="FullName" required>
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" required>
+            <label for="Username">Username</label>
+            <input type="text" id="Username" name="Username" required>
+            <label for="Password">Password</label>
+            <input type="password" name="Password" id="Password" required>
+            <label for="ConfirmPassword">Confirm Password</label>
+            <input type="password" name="ConfirmPassword" id="ConfirmPassword" required>
+            <button type="submit" class="signup_btn">Sign up</button>
+        </form>
+        <div>
+            <p style="color: white;">Already have an account? <a href="index.html">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
+ 
