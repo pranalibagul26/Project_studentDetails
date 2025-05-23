@@ -5,112 +5,108 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
+        *{
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items:flex-start;
+            align-items:center;
             background-image: url("bg_image.png");
             background-size: cover;
+            overflow-x: hidden;
 
         }
 
         .main_div{
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            border: 2px black;
-            height: auto;
-            padding: 30px;
+            position: relative;
+            margin: 20px;
+            width: 95%;
+            max-width: 1000px;
+            backdrop-filter: blur(20px);
+            /* flex-direction: column; */
+            background: rgba(255, 255, 255, 0.13);
+            border-radius: 25px;
+            box-shadow: 0px 0px 10px white;
+            padding: 40px;
         }
         .h2{
-            top: 10px;
             text-align: center;
             color:rgb(209, 207, 207);
-            margin-bottom: 20px;
-            font-size: 30px;
-            /* border: 2px solid black; */
+            margin-bottom: 35px;
+            position: relative;
+        
         }
-        .welcome{
+
+
+        /* .welcome{
             font-size: 23px;
             color:rgb(209, 207, 207);
             width: 30%;
-            /* border: 2px solid black; */
+            /* border: 2px solid rgb(198, 197, 197);
             margin-bottom: 30px;
+            padding: 0;
+
+
         }
         .username{
             font-weight: bold;
-            color:rgb(171, 171, 220) ;
-        }
+            color:rgb(171, 171, 220) ; */
+        
         h2.h2{
-            margin: 0;
-            padding: 0;
-        }
-        p.welcome{
-            padding: 0;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            text-shadow: 0 10px 10px rgba(0, 0, 0, 0.322);
+            margin-bottom: 10px;
+
+
         }
 
 
-        .logout{
-            width: 100px;
-            padding: 10px;
-            background-color: rgb(218, 62, 62);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 15px;
-            cursor: pointer;
-            margin-top: 20px;    
-        }
-        .lgo_container{
-            position: absolute;
-            top: 10px;
-            right:15px
-        }
-        .logout:hover{
-            background-color: #7e2f2f;
-        }
         .form{
-            flex-direction: column;
-            margin-bottom: 20px;
-            /* border: 2px solid black; */
+            display: grid;
+            gap: 20px;
+            /* border: 2px solid rgb(255, 252, 252); */
         }
 
-        .form label{
-            margin-bottom: 5px;
-            font-weight: bold;
-            margin-right: 0;
+        .form_element label{
             font-size: 18px;
-            color:rgb(209, 207, 207);
+            color: white;
+            font-weight: 200;
+            margin-bottom: 5px;
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
-        .form input, .form select{
+        .form_element input, 
+        .form_element select{
             width: 100%;
-            margin-bottom: 15px;
-            padding: 8px;
+            padding:10px;
             font-size: 16px;
             border: 1px solid rgba(255, 255, 255, 0.316);
             background-color: rgba(17, 16, 16, 0.14);
             color: rgb(229, 219, 219);
-            border-radius: 4px;
+            border-radius: 12px;
             box-sizing: border-box;
             height:auto           
 
         }
         .form_row{
-             display: flex;
+             display: grid;
              gap: 20px; /*gap between rows*/
-             flex-wrap: wrap;
-             margin-bottom: 20px;
+             grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
         }
         .form_element{
             display: flex;   
             flex-direction: column;
-            min-width: 400px;
 
         }
-        .checkbox_container {
+        .subject_sec {
          display: flex;
           align-items: flex-start;
           padding: 10px;
@@ -121,10 +117,10 @@
 
         .subject_label {
          font-weight: bold;
-          margin-right: 10px;
-          min-width: 40px;
-          font-size: 18px;
+         margin-bottom: 15px;
+          font-size: 15px;
           color:rgb(209, 207, 207);
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
         .checkbox_row {
           display: flex;
@@ -142,7 +138,7 @@
         .statemnt{
             font-size: 18px;
             font-weight: bold;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             color:rgb(209, 207, 207);
         }
 
@@ -163,13 +159,13 @@
 <body>
     <div class="main_div">
          <h2 class="h2">Student Details</h2>
-         <p class="welcome"> Welcome, <span class="username">Username</span></p>
+         <!-- <p class="welcome"> Welcome, <span class="username">Username</span></p> -->
 <!-- row 1 -->
        <form class="form">
         <div class="form_row">
         <div class="form_element">
             <label for="studentname">Student Name</label>
-            <input type="text" id="studentname" name="studentname" required>
+            <input type="text" id="studentName" name="studentname" required>
         </div>
         <div class="form_element">
             <label for="studentID">Student ID</label>
@@ -190,7 +186,7 @@
     <div class="form_row">
         <div class="form_element">
             <label for="sem">Semester</label>
-            <select name="sem" id="sem">
+            <select name="sem" id="semester">
                 <option value="" style="color: black;">Select Semester</option>
                 <option value="1" style="color: black;">1st Semester</option>
                 <option value="2"style="color: black;" >2nd Semester</option>
@@ -213,7 +209,7 @@
     </div>
     </form>
 <!-- checkbox -->
-<div class="checkbox_container">
+<div class="subject_sec">
   <label class="subject_label">Subject</label>
   <div class="checkbox_row">
     <label><input type="checkbox" name="subject" value="SQL"> SQL</label>
@@ -226,16 +222,41 @@
 </div>
 <div class="statemnt">
     <label for="statemnt">
-        <input type="checkbox" required> The above information is correct</label>
+        <input type="checkbox" id="confirmation"> The above information is correct</label>
 </div>
             
 <!-- save button -->
-        <button class="save_btn" onclick="location.href='tables.html'">Save Details</button>
-    <div class="lgo_container">
-        <button class="logout" onclick="location.href='index.html'">Log out</button>
+        <button class="save_btn" id="saveBtn">Save Details</button>
+    
     </div>
-    </div>
+<script>
+   document.getElementById('saveBtn').addEventListener('click', (e) => {
+        e.preventDefault(); 
+      if (!document.getElementById('confirmation').checked) {
+        return alert('Please confirm the info is correct.');
+      }
+        //get from data
+        const student = {
+        id :     document.getElementById('studentID').value,
+        name:    document.getElementById('studentName').value,
+        semester:document.getElementById('semester').value,
+        email:   document.getElementById('Email').value,
+        phone:   document.getElementById('Phone').value,
+        subjects: Array.from(
+          document.querySelectorAll('input[name="subject"]:checked')
+        ).map(cb => cb.value)
+        };
 
+        const all = JSON.parse(localStorage.getItem('student') || '[]');
+        all.push(student);
+        localStorage.setItem('student', JSON.stringify(all));
+        
+        window.location.href ='tables.html';
+
+    });
+
+
+</script>
 
 </body>
 </html>

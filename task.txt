@@ -9,3 +9,10 @@ changes to do :
 -welcome, username align to right 
 -clear unnecessary gap between lables and inputs
 -make all details required
+
+all page r in form format
+change background
+welcome, username align to right 
+data mismatched table
+
+
