@@ -101,7 +101,34 @@
             background: rgba(255, 255, 255, 0.15);
             border-radius: 15px;
         }
+        /* responsive */
+        @media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
 
+    th, td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .pagination_btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .logout {
+        width: 80px;
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    .lgo_container {
+        top: 10px;
+        right: 10px;
+    }
+}
     </style>
 </head>
 <body>
@@ -140,7 +167,7 @@
        </div>                
     </div>
     <script>
-        
+
     const students = JSON.parse(localStorage.getItem('student')) || [];
     const rowsPerPage = 10;
     let currentPage = 1;
