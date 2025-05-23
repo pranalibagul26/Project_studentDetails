@@ -9,19 +9,21 @@
             margin: 0;
             padding: 0;
             background-image:url("bg_image.png");
+            min-height: auto;
             min-height: 100vh;
             padding: 20px;
+            overflow-y: hidden;
         }
         .container{
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width:auto;
+            margin: 0 auto; 
             /* border: 2px solid white; */
-            background: rgba(22, 17, 17, 0.241);
+             background: rgba(22, 17, 17, 0.241);
             backdrop-filter: blur(20px);
             padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0px 2px 5px grey ;
-            
+            /* border-radius: 20px;
+             box-shadow: 0px 2px 5px grey ;
+             */
         }
         .header{
             display: flex;
@@ -41,7 +43,8 @@
         .stu_table{
             width: 100%;
             border-collapse: collapse;
-            border-radius: 10px;
+            border-radius: 15px;
+            overflow-x: hidden;
             box-shadow: 0px 4px 16px rgb(112, 108, 108);
         }
         th{
@@ -50,6 +53,8 @@
             text-align: left;
             font-size: 22px;
             font-weight: lighter;
+            /* border-radius: 8px; */
+            background: rgba(255, 255, 255, 0.1);
             /* border-bottom: 2px solid rgb(215, 135, 135); */
 
         }
@@ -58,7 +63,7 @@
             color: rgb(229, 217, 217);
             vertical-align: top;
         }
-
+   
         .logout{
             width: 100px;
             padding: 8px;
@@ -74,12 +79,29 @@
         }
         .lgo_container{
             position: absolute;
-            top: 10px;
-            right:15px
+            top: 20px;
+            right:20px
         }
         .logout:hover{
             background-color: #7e2f2f;
         }
+        .pagination_con{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .pagination_btn{
+            width: 50px;
+            height: 50px;
+            font-size: 16px;
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+        }
+
     </style>
 </head>
 <body>
@@ -106,32 +128,64 @@
                     <!-- data -->
                 </tbody>
             </table>
-            <div class="lgo_container">
+            
+        </div>  
+        <div class="pagination_con">
+            <button class="pagination_btn" id="prevBtn" onclick="previousPage()"><</button>
+            <button class="pagination_btn" id="nextBtn" onclick="nextPage()" >></button>
+        </div>
+        
+        <div class="lgo_container">
         <button class="logout" onclick="location.href='index.html'">Log out</button>
-       </div>
-        </div>                    
+       </div>                
     </div>
     <script>
+        
+    const students = JSON.parse(localStorage.getItem('student')) || [];
+    const rowsPerPage = 10;
+    let currentPage = 1;
 
-        const student = JSON.parse(localStorage.getItem('student'));
-        const tbody = document.getElementById('studentTableBody');
+    function renderTable() {
+      const tbody = document.getElementById('studentTableBody');
+      tbody.innerHTML = '';
 
-        student.forEach(element => {
-            const tr = document.createElement('tr');
-            [
-                element.id,
-                element.name,
-                element.semester,
-                element.email,
-                element.phone,
-                element.subjects.join(',')
-            ].forEach(text => {
-                const td = document.createElement('td');
-                td.textContent = text;
-                tr.appendChild(td);
-            });
-            tbody.appendChild(tr);
+      const startIndex = (currentPage - 1) * rowsPerPage;
+      const endIndex = startIndex + rowsPerPage;
+      const paginatedStudents = students.slice(startIndex, endIndex);
+
+      paginatedStudents.forEach(student => {
+        const tr = document.createElement('tr');
+        [
+          student.id,
+          student.name,
+          student.semester,
+          student.email,
+          student.phone,
+          student.subjects.join(', ')
+        ].forEach(text => {
+          const td = document.createElement('td');
+          td.textContent = text;
+          tr.appendChild(td);
         });
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('prevBtn').disabled = currentPage === 1;
+      document.getElementById('nextBtn').disabled = endIndex >= students.length;
+    }
+
+    function nextPage() {
+      currentPage++;
+      renderTable();
+    }
+
+    function previousPage() {
+      currentPage--;
+      renderTable();
+    }
+
+    // Initial table render
+    renderTable();
     </script>
 </body>
 </html>
